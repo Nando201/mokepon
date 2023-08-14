@@ -50,7 +50,7 @@ const mokepones = [];
 const sectionVerMapa = document.getElementById("ver-mapa");
 const mapa = document.getElementById("mapa");
 let lienzo = mapa.getContext("2d");
-document.addEventListener("keydown", moverMokepon);
+let intervalo
 
 class Mokepon {
   constructor(nombre, foto) {
@@ -63,6 +63,8 @@ class Mokepon {
     this.height = 80;
     this.imagen = new Image();
     this.imagen.src = foto;
+    this.velocidadX = 0
+    this.velocidadY = 0
   }
 }
 
@@ -150,6 +152,7 @@ function iniciarJuego() {
 function seleccionarMascotaJugador() {
   sectionSeleccionarMascota.style.display = "none";
   sectionVerMapa.style.display = "flex";
+  intervalo = setInterval(dibujarMokepon, 50)
   //sectionSeleccionarAtaque.style.display = 'flex'
 
   inputHipodoge = document.getElementById("Hipodoge");
@@ -340,7 +343,9 @@ function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function dibujaMokepon() {
+function dibujarMokepon(){
+  hipodoge.y = hipodoge.y + hipodoge.velocidadY
+  hipodoge.x = hipodoge.x + hipodoge.velocidadX
   lienzo.clearRect(0, 0, mapa.width, mapa.height);
   lienzo.drawImage(
     hipodoge.imagen,
@@ -349,32 +354,29 @@ function dibujaMokepon() {
     hipodoge.width,
     hipodoge.height
   );
+  console.log(hipodoge.y)
 }
 
-function moverMokepon(e) {
-  //Arriba: 38, Abajo: 40, Derecha:39, Izquierda: 37
-  let arriba = 38;
-  let abajo = 40;
-  let derecha = 39;
-  let izquierda = 37;
-  switch (e.keyCode) {
-    case arriba:
-      hipodoge.y = hipodoge.y - 10;
-      dibujaMokepon();
-      break;
-    case abajo:
-      hipodoge.y = hipodoge.y + 10;
-      dibujaMokepon();
-      break;
-    case derecha:
-      hipodoge.x = hipodoge.x + 10;
-      dibujaMokepon();
-      break;
-    case izquierda:
-      hipodoge.x = hipodoge.x - 10;
-      dibujaMokepon();
-      break;
-  }
+
+function moverArriba() {
+  hipodoge.velocidadY = -5
+}
+
+function moverAbajo() {
+  hipodoge.velocidadY = 5
+}
+function moverDerecha() {
+  hipodoge.velocidadX = 5
+}
+
+function moverIzquierda() {
+  hipodoge.velocidadX = -5
+}
+
+
+function detenerMovimiento(){
+  hipodoge.velocidadY = 0
+  hipodoge.velocidadX = 0
 }
 
 window.addEventListener("load", iniciarJuego);
