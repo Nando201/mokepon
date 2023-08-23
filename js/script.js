@@ -295,20 +295,19 @@ function seleccionarMascotaEnemigo(mascotaEnemigo) {
   //spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatorio].nombre
   spanMascotaEnemigo.innerHTML = mascotaEnemigo.nombre
   ataquesMokeponEnemigo = mascotaEnemigo.ataques
-  console.log(mascotaEnemigo)
   //ataquesMokeponEnemigo = mokepones[mascotaAleatorio].ataques //Ataques de la mascota elegida de forma aleatoria
-  secuenciadeAtaque();
+  secuenciadeAtaque()
 }
 
 function seleccionaAtaqueEnemigo() {
   let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length - 1)
 
   if (ataquesMokeponEnemigo[ataqueAleatorio].nombre == "🔥"){
-    ataquesEnemigo.push("FUEGO");
+    ataquesEnemigo.push("FUEGO")
   } else if (ataquesMokeponEnemigo[ataqueAleatorio].nombre == "💧") {
-    ataquesEnemigo.push("AGUA");
+    ataquesEnemigo.push("AGUA")
   } else {
-    ataquesEnemigo.push("TIERRA");
+    ataquesEnemigo.push("TIERRA")
   }
   //console.log(ataquesEnemigo);
   inicializaCombate();
@@ -356,7 +355,7 @@ function combate() {
 
   spanVidasJugador.innerHTML = numeroVictoriasJugador;
   spanVidasEnemigo.innerHTML = numeroVictoriasEnemigo;
-  revisarVictorias(); //Antes -> revisarVidas()
+  revisarVictorias() //Antes -> revisarVidas()
 }
 
 function mostrarMensajeDeAtaques() {
@@ -413,7 +412,7 @@ function pintarCanvas(){
   ratigueyaEnemigo.pintarMokepon()
   capipepoEnemigo.pintarMokepon()
    //Revisar colision si la mascota se esta moviendo
-   if(mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
+  if(mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
     determinarColision(hipodogeEnemigo)
     determinarColision(ratigueyaEnemigo)
     determinarColision(capipepoEnemigo)
@@ -498,10 +497,11 @@ function determinarColision(enemigo) {
         return
     }
     detenerMovimiento()
+    clearInterval(intervalo)
     sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'none'
     seleccionarMascotaEnemigo(enemigo)
-    //console.log('Colision')
+    console.log('Colision')
 }
 
 window.addEventListener("load", iniciarJuego);
