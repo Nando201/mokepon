@@ -93,9 +93,6 @@ input:checked + label{
     justify-content: center;
 }
 
-#mapa{
-    border: 1px solid white;
-}
 
 
 #seleccionar-ataque{
