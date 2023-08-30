@@ -426,6 +426,7 @@ function pintarCanvas(){
   capipepoEnemigo.pintarMokepon()
   //Revisar colision si la mascota se esta moviendo
   if(mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
+    detenerEnBordesDeMapa()
     determinarColision(hipodogeEnemigo)
     determinarColision(ratigueyaEnemigo)
     determinarColision(capipepoEnemigo)
@@ -512,6 +513,34 @@ function determinarColision(enemigo) {
     sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'none'
     seleccionarMascotaEnemigo(enemigo)
+    colision = true
 }
+
+  function detenerEnBordesDeMapa(){
+    const arribaMapa = 0
+    const abajoMapa = mapa.height - mascotaJugadorObjeto.height
+    const derechaMapa = mapa.width
+    const izquierdaMapa = 0
+  
+    const arribaJugador = mascotaJugadorObjeto.posY
+    const derechaJugador = mascotaJugadorObjeto.posX + mascotaJugadorObjeto.width
+    const izquierdaJugador = mascotaJugadorObjeto.posX
+
+    if (arribaJugador < arribaMapa) {
+      mascotaJugadorObjeto.posY = arribaMapa;
+    }
+  
+    if (arribaJugador > abajoMapa) {
+      mascotaJugadorObjeto.posY = abajoMapa;
+    }
+  
+    if (derechaJugador > derechaMapa) {
+      mascotaJugadorObjeto.posX = derechaMapa - mascotaJugadorObjeto.width;
+    }
+  
+    if (izquierdaJugador < izquierdaMapa) {
+      mascotaJugadorObjeto.posX = izquierdaMapa;
+    }
+  }
 
 window.addEventListener("load", iniciarJuego);
