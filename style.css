@@ -93,6 +93,44 @@ input:checked + label{
     justify-content: center;
 }
 
+.contenedor-botones-movimiento{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 5px;
+}
+
+.boton{
+    background-color: transparent;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.boton:active{
+    background-color: #002B5B;
+}
+
+.arriba{
+    grid-row: 1;
+    grid-column: 2/3
+}
+.abajo{
+    grid-row: 3;
+    grid-column: 2/3
+}
+.derecha{
+    grid-row: 2;
+    grid-column: 3/4
+}
+.izquierda{
+    grid-row: 2;
+    grid-column: 1/2;
+}
+
 
 
 #seleccionar-ataque{
@@ -166,13 +204,19 @@ input:checked + label{
     margin-bottom: 15px;
 }
 
-@media (max-width: 500px){
+@media (max-width: 560px){
     .tarjetas{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
         flex-direction: column;
     }
     .tarjeta-ataques{
         flex-direction: column;
+    }
+}
+
+@media (max-width: 300px){
+    #ver-mapa div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }

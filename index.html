@@ -19,10 +19,12 @@
   <section id="ver-mapa">
     <h1 class="titulo">DinoRey</h1>
     <canvas id="mapa" width="300px" height="300px"></canvas>
-    <button onmouseup="detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>
-    <button onmouseup="detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button>
-    <button onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
-    <button onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()">Izquierda</button>
+    <div class="contenedor-botones-movimiento">
+      <button class="boton arriba" onmouseout="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>
+      <button class="boton abajo" onmouseout="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button>
+      <button class="boton derecha" onmouseout="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
+      <button class="boton izquierda" onmouseout="detenerMovimiento()" onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()">Izquierda</button>
+    </div>
   </section>
   <section id="seleccionar-ataque">
     <h1 class="titulo">DinoRey</h1>
