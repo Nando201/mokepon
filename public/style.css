@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Finger+Paint&family=Poppins:wght@300&family=Special+Elite&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-image: url(assets/dinasaurio.png); */
+    /*background-size: cover; /* ajusta el tamaño de la imagen para cubrir todo el fondo */
+    /* background-position: center; /* centra la imagen en el fondo */
+    /* background-color: #E14D2A; */
+    background-image: linear-gradient(
+    to bottom,
+    rgba(219, 82, 9, 0.5),
+    rgba(0, 0, 255, 0.336)
+  ),
+  url("./assets/background.jpg");
+  
+}
+
+#seleccionar-mascota{
+    height: 70%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(31, 34, 50, 0.8);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.titulo{
+    color: white;
+    font-size: 36px;
+    font-family: 'Bungee Shade', cursive;
+}
+
+.subtitulo{
+    color: white;
+    font-family: 'Concert One', cursive;
+    font-size: 20px;
+}
+
+.tarjetas{
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-mokepon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 150px;
+    background-image:linear-gradient(
+    to bottom,
+    rgba(234, 44, 158, 0.7),
+    rgba(30, 25, 30, 0.7)
+    ),
+    url("./assets/dino.jpg");
+    background-size: cover; /* ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.tarjeta-mokepon p{
+    font-family: 'Atma', cursive;
+    color: white;
+}
+
+.image-container{
+    background-color: rgb(31, 34, 50, 0.9);
+    padding: 5px;
+    border-radius: 50px;
+}
+
+.tarjeta-mokepon img{
+    width: 80px;
+}
+
+
+input{
+    display: none;
+}
+
+input:checked + label{
+    border: 1px solid white;
+}
+
+#boton-mascota{
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid white;
+    width: 150px;
+    height: 40px;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+}
+
+#boton-mascota:active{
+    background-color: #EA5455;
+}
+
+#ver-mapa{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-botones-movimiento{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 5px;
+}
+
+.boton{
+    background-color: transparent;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.boton:active{
+    background-color: #002B5B;
+}
+
+.arriba{
+    grid-row: 1;
+    grid-column: 2/3
+}
+.abajo{
+    grid-row: 3;
+    grid-column: 2/3
+}
+.derecha{
+    grid-row: 2;
+    grid-column: 3/4
+}
+.izquierda{
+    grid-row: 2;
+    grid-column: 1/2;
+}
+
+
+
+#seleccionar-ataque{
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarjeta-ataques{
+    display: flex;
+    gap: 10px;
+}
+
+.boton-de-ataque{
+    width: 100px;
+    background-color: #001253;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: transparent;
+    font-family: 'Atma', cursive;
+}
+
+.boton-de-ataque:active{
+    background-color: #E14D2A;
+}
+
+#resultado-de-combate{
+    margin: 0;
+}
+
+#mensajes{
+    width: 220px;
+    height: 60px;
+    margin: 20px 0px;
+    padding: 10px;
+    background-color: #F9F5EB;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#boton-reiniciar{
+    border: none;
+    background-color: transparent;
+    color: #001253;
+}
+
+.ataques{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.jugador, .enemigo{
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jugador p, .enemigo p{
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 560px){
+    .tarjetas{
+        flex-direction: column;
+    }
+    .tarjeta-ataques{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 300px){
+    #ver-mapa div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
